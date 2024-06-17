@@ -13,6 +13,7 @@ import DocumentStore from "ravendb";
 //import {readFileSync} from "fs";
 
 export const secSchema = z.object({
+  maxProductsPerPage: z.number().default(30),
   db: z.object({
     url: z.string(),
     databaseName: z.string(),
@@ -59,7 +60,7 @@ export class Plugin
   runBeforePlugins?: string[] | undefined;
   runAfterPlugins?: string[] | undefined;
   methods = {};
-
+  public get Config() { return this.config; }
   //public CFTurnstiles: CFTurnstiles;
 
   dispose(): void {
