@@ -52,7 +52,7 @@ export interface Brand extends RedisBase {
 }
 
 export interface ADCover {
-  visible?: boolean;
+  enabled?: boolean;
   id: string;
   title: string;
   link: string;

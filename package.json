@@ -6,7 +6,7 @@
   },
   "scripts": {
     "build": "npm run build-plugin",
-    "build-plugin": "rm -rfv ./lib && tsc",
+    "build-plugin": "rm -rfv ./lib && tsc && cp -r ./src/plugins/service-wispstock/assets ./lib/plugins/service-wispstock/assets",
     "build-clients": "node node_modules/@bettercorp/service-base/build-lib-clients.js",
     "dev": "nodemon --config nodemon.json",
     "start": "ts-node node_modules/@bettercorp/service-base/lib/cli.js",
