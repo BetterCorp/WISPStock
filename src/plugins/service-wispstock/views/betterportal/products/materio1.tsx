@@ -2,6 +2,8 @@
 
 import { BetterPortalUIView } from "@bettercorp/betterportal";
 import { ViewDefinition } from "./index";
+import fs from 'fs';
+import path from "path";
 
 export const Component: BetterPortalUIView<ViewDefinition> = (props) => {
   const page = props.outboundData.page,
@@ -9,30 +11,50 @@ export const Component: BetterPortalUIView<ViewDefinition> = (props) => {
     total = props.outboundData.total,
     perPage = props.outboundData.perPage,
     totalPages = Math.ceil(total / perPage);
-  // cards black background smimilar to theme colors
+
 
   const productsList = products.map((product) => (
-    <div
-      class="card border rounded-3 bg-white text-center m-3 p-0"
-      style="width: 15rem;
-          background-image: linear-gradient(#28243d, #9260ff)"
-    >
-      <img src={product.img} class="rounded p-3" style=""></img>
-      <div class="card-body">
-        <div class="card-title">
-          <h5 class="text-white ">{product.title}</h5>
+
+    <div class="card cardStyle border rounded-3 m-1 px-auto " hx-get={props.context.methods.getProductDetailsUrl(product.id)}>
+        <div class="frame text-white text-center m-1"> 
+          <h6 class="text-white text-center p-2">{product.title}</h6>
         </div>
+      <div class="card-body frame">
+         <img
+            src={props.context.methods.getProductImageUrl(product.id)}
+            class="img-fluid w-100"
+          ></img>
+        
       </div>
-      <div class="card-body">
-        <p class="text-white card-text">SKU: {product.sku}</p>
+
+      <div class="card-body frame text-white text-center mt-1">
+      
+      <div class="d-flex justify-content-evenly mt-1">
+        <p>
+          <img src="https://cdn.shopify.com/s/files/1/1439/1668/t/28/assets/favicon.ico?v=69860357381422628591672729793" class="icon"></img>
+        </p>
+        <p>
+          <img src="https://www.linktechs.net/productcart/pc/theme/adam_1_10_20/images/favicon.ico" class="icon"></img>
+        </p>
+        <p>
+          <img src="https://www.ispsupplies.com/img/icon-192.png" class="icon"></img> 
+        </p>
       </div>
+      <div class="d-flex justify-content-evenly">
+      <span>✔️</span>
+      <span>⏳ </span>
+      <span>❌</span>
     </div>
+      </div>
+        <p class="card-text text-center">SKU: {product.sku}</p>
+      </div>
+
   ));
 
   return {
     status: 200, 
     content: (
-      <div class="container">
+      <div class="container body">
         <input
           value={props.query?.search ?? ""}
           hx-params="search"
@@ -84,6 +106,7 @@ export const Component: BetterPortalUIView<ViewDefinition> = (props) => {
             Last
           </button>
         </div>
+        <style>{fs.readFileSync(path.join(props.context.pcwd, "views/betterportal/products", "materio1.css")).toString()}</style>
       </div>
     ),
   };

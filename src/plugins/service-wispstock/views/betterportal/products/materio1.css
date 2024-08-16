@@ -1,0 +1,20 @@
+.cardStyle {
+	width: 12rem; 
+	background-color: #252554;
+	margin: 9px !important;
+	padding: 0px !important;
+}
+
+.icon {
+	height: 20px;
+	width: auto;
+}
+
+.frame {
+	padding: 0px !important;
+	margin: 0px !important;
+}
+
+h6{
+	margin: 0px !important;
+}

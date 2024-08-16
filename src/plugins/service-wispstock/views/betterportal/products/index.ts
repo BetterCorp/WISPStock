@@ -16,8 +16,8 @@ const querySchema = z.object({
 const outputSchema = z.object({
   products: z.array(
     z.object({
+      id: z.string(),
       title: z.string(),
-      img: z.string(),
       sku: z.string(),
     })
   ),
@@ -83,8 +83,8 @@ export const DataHandler: BetterPortalUIComponentDataHandler<
     status: 200,
     content: {
       products: products.map((product) => ({
+        id: product.id,
         title: product.title,
-        img: product.img,
         sku: product.sku,
       })),
       page: page,
