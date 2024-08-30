@@ -1,0 +1,74 @@
+/** @jsxImportSource jsx-htmx */
+
+import { BetterPortalUIView } from "@bettercorp/betterportal";
+import {
+  ViewDefinition,
+} from "./index";
+
+export const Component: BetterPortalUIView<ViewDefinition> = (props) => {
+  return {
+    status: 200,
+    content: (
+      <div class="row">
+        <div>
+          <p class="text-danger bg-drak">New Arrival</p>
+        </div>
+        <div class="container-fluid mt-3">
+          <h1>high-tech device </h1>
+          <div class="row">
+            <div class="col-sm-6 bg-warning text-white p-3">
+              <a target="_blank" href="https://scoop.co.za/download/marketing/images/UVC-AITH.jpg">
+                <img src="https://scoop.co.za/download/marketing/images/UVC-AITH.jpg" alt="camera" width="700" height="500" /></a>
+              <div class=""> </div>
+            </div>
+            <div class="col-sm-6 bg-danger text-white p-3">
+              <a target="_blank" href="https://media.stockinthechannel.com/pic/ihFEBSj9VUG_wL95ql7UeQ.c-t.jpg">
+                <img src="https://media.stockinthechannel.com/pic/ihFEBSj9VUG_wL95ql7UeQ.c-t.jpg" alt="camera" width="700" height="500" /></a>
+              <div class=""> </div> 
+            </div>
+            <div class="col-sm-1 bg-secondary text-white p-2">
+              <a target="_blank" href="https://scoop.co.za/download/marketing/images/UVC-AITH.jpg">
+                <img src="https://media.stockinthechannel.com/pic/VDnSjgo8bE-xGSSvB24hfA.c-t.jpg" alt="camera" width="100" height="70" /></a>
+              <div class=""> </div>
+            </div>
+            <div class="col-sm-1 bg-secondary text-white p-2">
+              <a target="_blank" href="https://media.stockinthechannel.com/pic/rIal0_JRJUSktSPrRXJtAw.c-t.jpg">
+                <img src="https://media.stockinthechannel.com/pic/rIal0_JRJUSktSPrRXJtAw.c-t.jpg" alt="camera" width="100" height="70" /></a>
+              <div class=""> </div>
+            </div>
+            <div class="col-sm-1 bg-secondary text-white p-2">
+              <a target="_blank" href="https://scoop.co.za/download/marketing/images/UVC-AITH.jpg">
+                <img src="https://media.stockinthechannel.com/pic/akc4oLSYsU-CoR6Ehk_WQQ.c-t.jpg" alt="camera" width="100" height="70" /></a>
+              <div class=""> </div>
+            </div>
+            <div class="col-sm-1 bg-secondary text-white p-2">
+              <a target="_blank" href="https://scoop.co.za/download/marketing/images/UVC-AITH.jpg">
+                <img src="https://media.stockinthechannel.com/pic/BDIcBz7GNky-Lfa6i4GNHQ.c-r.jpg" alt="camera" width="100" height="70" /></a>
+              <div class=""> </div>
+            </div>
+            <div class="col-sm-1 bg-secondary text-white p-2">
+              <a target="_blank" href="https://media.stockinthechannel.com/pic/ihFEBSj9VUG_wL95ql7UeQ.c-t.jpg">
+                <img src="https://media.stockinthechannel.com/pic/ihFEBSj9VUG_wL95ql7UeQ.c-t.jpg" alt="camera" width="100" height="70" /></a>
+              <div class=""> </div>
+            </div>
+            <div class="col-sm-1 bg-secondary text-white p-2">
+              <a target="_blank" href="https://media.stockinthechannel.com/pic/RgN8czPVT0OhxMUh9U3DHA.c-t.jpg">
+                <img src="https://media.stockinthechannel.com/pic/RgN8czPVT0OhxMUh9U3DHA.c-t.jpg" alt="camera" width="100" height="70" /></a>
+              <div class=""> </div>
+            </div>
+            <div class="col-sm-1 bg-secondary text-white p-2">
+              <a target="_blank" href="https://scoop.co.za/download/marketing/images/UVC-AITH.jpg">
+                <img src="https://media.stockinthechannel.com/pic/3MPwE5HMWE2iJSAXy8YaUQ.c-t.jpg" alt="camera" width="100" height="70" /></a>
+              <div class=""> </div>
+            </div>
+
+          </div>
+        </div>
+       
+
+         
+        </div>
+      </div>
+    ),
+  };
+};
