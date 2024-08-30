@@ -66,7 +66,7 @@ export class Plugin
   runBeforePlugins?: string[] | undefined;
   runAfterPlugins?: string[] | undefined;
   public get Config() { return this.config; }
-  public get pcwd(): string { return this.pluginCwd; }
+  public get PluginCWD(): string { return this.pluginCwd; }
   methods = {
     getProductImageUrl: (productId: string) => `/product-image/${productId}`,
     getProductUrl: (productId: string, dist: string) => `/product-url/${productId}/${dist}`,

@@ -6,8 +6,7 @@ import fs from 'fs';
 import path from "path";
 
 export const Component: BetterPortalUIView<ViewDefinition> = (props) => {
-  const page = props.outboundData.page,
-    products = props.outboundData.products,
+  const products = props.outboundData.products,
     total = props.outboundData.total,
     perPage = props.outboundData.perPage,
     totalPages = Math.ceil(total / perPage);
@@ -15,19 +14,19 @@ export const Component: BetterPortalUIView<ViewDefinition> = (props) => {
 
   const productsList = products.map((product) => (
 
-    <div class="card cardStyle border rounded-3 m-1 px-auto " hx-get={props.context.methods.getProductDetailsUrl(product.id)}>
-        <div class="frame text-white text-center m-1"> 
-          <h6 class="text-white text-center p-2">{product.title}</h6>
-        </div>
+    <div class="card cardStyle border rounded-3 m-1 px-auto ">
       <div class="card-body frame">
          <img
             src={props.context.methods.getProductImageUrl(product.id)}
             class="img-fluid w-100"
           ></img>
-        
       </div>
 
       <div class="card-body frame text-white text-center mt-1">
+
+      <div class="frame text-white text-center m-1"> 
+          <h6 class="text-white text-center p-2">{product.title}</h6>
+        </div>
       
       <div class="d-flex justify-content-evenly mt-1">
         <p>
@@ -41,10 +40,10 @@ export const Component: BetterPortalUIView<ViewDefinition> = (props) => {
         </p>
       </div>
       <div class="d-flex justify-content-evenly">
-      <span>✔️</span>
-      <span>⏳ </span>
-      <span>❌</span>
-    </div>
+        <i class="icon bi bi-heart"></i>
+        <i class="icon bi bi-info-circle" hx-get={props.context.methods.getProductDetailsUrl(product.id)}></i>
+      </div>
+
       </div>
         <p class="card-text text-center">SKU: {product.sku}</p>
       </div>
@@ -79,21 +78,21 @@ export const Component: BetterPortalUIView<ViewDefinition> = (props) => {
           >
             First
           </button>
-          {page > 1 ? (
+          {props.outboundData.page > 1 ? (
             <button
               class="btn btn-light"
               hx-trigger="click"
-              hx-get={`/products?page=${page - 1}`}
+              hx-get={`/products?page=${props.outboundData.page - 1}`}
             >
               Previous Page
             </button>
           ) : null}
-          <span class="fw-bold fs-5">Page {page}</span>
-          {page < totalPages ? (
+          <span class="fw-bold fs-5">Page {props.outboundData.page}</span>
+          {props.outboundData.page < totalPages ? (
             <button
               class="btn btn-light"
               hx-trigger="click"
-              hx-get={`/products?page=${page + 1}`}
+              hx-get={`/products?page=${props.outboundData.page + 1}`}
             >
               Next Page
             </button>
@@ -106,7 +105,8 @@ export const Component: BetterPortalUIView<ViewDefinition> = (props) => {
             Last
           </button>
         </div>
-        <style>{fs.readFileSync(path.join(props.context.pcwd, "views/betterportal/products", "materio1.css")).toString()}</style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"></link>
+        <style>{fs.readFileSync(path.join(props.context.PluginCWD, "views/betterportal/products", "materio1.css")).toString()}</style>
       </div>
     ),
   };
