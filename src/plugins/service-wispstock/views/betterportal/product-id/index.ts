@@ -11,6 +11,17 @@ import {T_SUPPORTED_THEMES} from "../index";
 const querySchema = z.object({
 });
 const outputSchema = z.object({
+  id: z.string(),
+    title: z.string(),
+    enabled: z.boolean(),
+    brand: z.string(),
+    img: z.string(),
+    // link: z.string(),
+    status: z.string(),
+    additionalInfo: z.object({
+      descriptionShort: z.string().optional(),
+      images: z.array(z.string())
+    })
 });
 
 export interface ViewDefinition
@@ -40,6 +51,19 @@ export const ViewHandlers: Record<T_SUPPORTED_THEMES, BetterPortalUIView<ViewDef
 };
 
 export const DataHandler: BetterPortalUIComponentDataHandler<ViewDefinition> = async (props) => {
+  const session = props.context.RavenDB.openSession()
+  let product = await session.load<ProductListItem>(props.params.id);
+
+
+  session.dispose();
+
+
+
+  if (!product)
+    return {
+      status: 404,
+      content: null,
+    };
   return {
     status: 200,
     content: {} as any,
