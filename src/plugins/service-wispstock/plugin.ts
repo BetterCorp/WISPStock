@@ -19,6 +19,7 @@ import {createHash} from "crypto";
 import {join} from "path";
 
 export const secSchema = z.object({
+  maxProductsPerPage: z.number().default(30),
   db: z.object({
     url: z.string(),
     databaseName: z.string(),
@@ -64,6 +65,8 @@ export class Plugin
   initAfterPlugins?: string[] | undefined;
   runBeforePlugins?: string[] | undefined;
   runAfterPlugins?: string[] | undefined;
+  public get Config() { return this.config; }
+  public get PluginCWD(): string { return this.pluginCwd; }
   methods = {
     getProductImageUrl: (productId: string) => `/product-image/${productId}`,
     getProductUrl: (productId: string, dist: string) => `/product-url/${productId}/${dist}`,

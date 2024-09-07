@@ -118,3 +118,11 @@ export interface AnalyticsStatAction {
   id: string;
   desc: string | null;
 }
+
+export const Collections = {
+  products: "products",
+} as const;
+
+export const QueryCollections = {
+  products: { collection: Collections.products}
+} as const;

@@ -1,0 +1,28 @@
+.cardStyle {
+	width: 12rem; 
+	background-color: #252554;
+	margin: 9px !important;
+	padding: 0px !important;
+	transition: transform .2s;
+	overflow: hidden;
+}
+
+.cardStyle:hover {
+	transform: scale(1.2);
+	position: relative;
+	z-index: 9999;
+}
+
+.icon {
+	height: 30px;
+	width: auto;
+}
+
+.frame {
+	padding: 0px !important;
+	margin: 0px !important;
+}
+
+h6{
+	margin: 0px !important;
+}
